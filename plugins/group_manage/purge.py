@@ -2,8 +2,9 @@ import asyncio
 from pyrogram import Client, filters, enums 
 from plugins.helper.admin_check import admin_check
 
+from info import ADMINS
 
-@Client.on_message(filters.command("purge") & (filters.group | filters.channel))                   
+@Client.on_message(filters.command("purge") & (filters.group | filters.channel) & filters.user(ADMINS))
 async def purge(client, message):
     if message.chat.type not in ((enums.ChatType.SUPERGROUP, enums.ChatType.CHANNEL)):
         return

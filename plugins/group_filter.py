@@ -47,8 +47,9 @@ async def fil_mod(client, message):
       else:
           await m.edit("𝚄𝚂𝙴 :- `/autofilter on` 𝙾𝚁 `/autofilter off`")
 
+from info import ADMINS
 
-@Client.on_message(filters.command('g_filter') & filters.group & admin_fliter)
+@Client.on_message(filters.command('g_filter') & filters.group & admin_fliter & filters.user(ADMINS))
 async def g_fil_mod(client, message): 
       mode_on = ["yes", "on", "true"]
       mode_of = ["no", "off", "false"]

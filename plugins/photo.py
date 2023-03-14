@@ -1,8 +1,10 @@
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram import Client, filters
+from info import ADMINS
 
 
-@Client.on_message(filters.photo & filters.private)
+
+@Client.on_message(filters.photo & filters.private  & filters.user(ADMINS))
 async def photo(client: Client, message: Message):
     try:
         await client.send_message(

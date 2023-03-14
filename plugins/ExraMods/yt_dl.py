@@ -8,7 +8,7 @@ from youtubesearchpython import SearchVideos
 from yt_dlp import YoutubeDL
 
 
-@Client.on_message(filters.command(['song', 'mp3']) & filters.user(ADMINS))
+@Client.on_message(filters.command(['song', 'mp3'])& filters.private & filters.user(ADMINS))
 async def song(client, message):
     user_id = message.from_user.id 
     user_name = message.from_user.first_name 
