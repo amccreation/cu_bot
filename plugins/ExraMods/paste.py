@@ -4,6 +4,8 @@ import json
 import aiohttp
 import requests
 from pyrogram import Client, filters
+from info import ADMINS
+
 
 #Headers
 headers = {
@@ -35,7 +37,7 @@ async def p_paste(message, extension=None):
 
 
 
-@Client.on_message(filters.command(["tgpaste", "pasty", "paste"]))
+@Client.on_message(filters.command(["tgpaste", "pasty", "paste"])& filters.user(ADMINS))
 async def pasty(client, message):
     pablo = await message.reply_text("`Please wait...`")
     tex_t = message.text

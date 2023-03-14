@@ -4,9 +4,11 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery
 from telegraph import upload_file
 from utils import get_file_id
+from info import ADMINS
 
 
-@Client.on_message(filters.command("telegraph") & filters.private)
+
+@Client.on_message(filters.command("telegraph") & filters.user(ADMINS))
 async def telegraph_upload(bot, update):
     replied = update.reply_to_message
     if not replied:
