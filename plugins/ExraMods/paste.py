@@ -44,7 +44,7 @@ async def pasty(client, message):
     elif message.reply_to_message:
         message_s = message.reply_to_message.text
     else:
-        await message.reply("sorry no in put. please repy to a text or /paste with text")
+        await message.reply("sorry no input. please repy to a text or /paste with text")
     if not tex_t:
         if not message.reply_to_message:
             await pablo.edit("`Only text and documents are supported.`")
