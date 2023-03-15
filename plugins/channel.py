@@ -2,13 +2,13 @@ from pyrogram import Client, filters
 from info import CHANNELS
 from database.ia_filterdb import save_file
 
-media_filter = filters.document | filters.image
+media_filter = filters.document | filters.photo
 
 
 @Client.on_message(filters.chat(CHANNELS) & media_filter)
 async def media(bot, message):
     """Media Handler"""
-    for file_type in ("document" , "image"):
+    for file_type in ("document" , "photo"):
         media = getattr(message, file_type, None)
         if media is not None:
             break
