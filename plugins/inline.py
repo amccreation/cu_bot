@@ -70,7 +70,7 @@ async def answer(bot, query):
                 title=file.file_name,
                 document_file_id=file.file_id,
                 caption=f_caption,
-                description=f'Size: {get_size(file.file_size)}\nType: {file.file_type}',
+                description=f'Type: {file.file_type}',
                 reply_markup=reply_markup))
 
     if results:
