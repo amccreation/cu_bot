@@ -38,7 +38,7 @@ async def pm_AutoFilter(client, msg, pmspoll=False):
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
-                return await message.reply_text('nothing found !!')
+                return await message.reply_text('no files  found  for your search !!')
         else:
             return
     else:
@@ -110,7 +110,7 @@ async def pm_AutoFilter(client, msg, pmspoll=False):
             **locals()
         )
     else:
-        cap = f"  what i found for your search keyword {search}   look carefuly"
+        cap = f"  what i found for your search keyword {search}don't bother this file names result will be based on your query"
     if imdb and imdb.get('poster'):
         try:
             hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
