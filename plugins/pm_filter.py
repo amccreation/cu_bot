@@ -37,8 +37,8 @@ async def pm_AutoFilter(client, msg, pmspoll=False):
         if 2 < len(message.text) < 100:
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
-            if not files:               
-                return await pm_spoll_choker(msg)              
+            if not files:
+                return await pm_spoll_choker(msg)
         else:
             return 
     else:
@@ -145,8 +145,6 @@ async def pm_spoll_choker(msg):
     gs_parsed = []
     if not g_s:
         k = await msg.reply("I couldn't find anything in that name.")
-        await asyncio.sleep(8)
-        await k.delete()
         return
     regex = re.compile(r".*(google).*", re.IGNORECASE)  # look for imdb / wiki results
     gs = list(filter(regex.match, g_s))
@@ -173,9 +171,7 @@ async def pm_spoll_choker(msg):
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
-        k = await msg.reply("I couldn't find anything related to that. Check your spelling")
-        await asyncio.sleep(8)
-        await k.delete()
+        k = await msg.reply("I couldn't find anything related to that.ask in groups!! you may get ")
         return
     temp.PM_SPELL_CHECK[msg.id] = movielist
     btn = [[InlineKeyboardButton(text=movie.strip(), callback_data=f"pmspolling#{user}#{k}")] for k, movie in enumerate(movielist)]
