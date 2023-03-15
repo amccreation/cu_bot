@@ -38,7 +38,7 @@ async def pm_AutoFilter(client, msg, pmspoll=False):
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
-                return message.reply_text('nothing found !!')
+                return await message.reply_text('nothing found !!')
         else:
             return
     else:
