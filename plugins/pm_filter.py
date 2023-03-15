@@ -40,7 +40,7 @@ async def pm_AutoFilter(client, msg, pmspoll=False):
             # if not files:
             #     return await pm_spoll_choker(msg)
         else:
-            await msg.reply("I couldn't find anything for your search  !")
+            return message.reply_text('nothing found !!')
     else:
         message = msg.message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = pmspoll
