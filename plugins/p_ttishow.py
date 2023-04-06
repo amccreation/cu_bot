@@ -19,7 +19,6 @@ async def save_group(bot, message):
             await bot.send_message(LOG_CHANNEL, script.LOG_TEXT_G.format(a=message.chat.title, b=message.chat.id, c=message.chat.username, d=total, e=r_j, f=temp.B_LINK))       
             await db.add_chat(message.chat.id, message.chat.title, message.chat.username)
         if message.chat.id in temp.BANNED_CHATS:
-            # Inspired from Indian HighCourt ന്റെ നിയമം പേടിച്ചു റിപ്പോയിലെ കോഡ് delete ആകിയവർ 
             buttons = [[
                 InlineKeyboardButton('𝚂𝚄𝙿𝙿𝙾𝚁𝚃', url=f'https://t.me/{SUPPORT_CHAT}')
             ]]
