@@ -48,9 +48,9 @@ async def start(client, message):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_chat_action(enums.ChatAction.TYPING)
-        m=await message.reply('test')
-        await asyncio.sleep(1)
-        await m.delete()
+        m=await message.reply('hello , you can ask your needed not here just as a messege !')
+        # await asyncio.sleep(1)
+        # await m.delete()
         await message.reply_photo(
             photo=random.choice(PICS),
             caption=START_MESSAGE.format(user=message.from_user.mention, bot=temp.B_LINK),
